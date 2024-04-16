@@ -1,0 +1,17 @@
+<?php
+// Define the correct secret code
+$correct_code = "06";
+
+// Check if the form was submitted
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // Check if the code submitted matches the correct code
+    if (isset($_POST["code"]) && $_POST["code"] === $correct_code) {
+        // Code is correct, redirect to the next page
+        header("Location: next_page.html");
+        exit();
+    } else {
+        // Code is incorrect, display an error message
+        echo "<p>Incorrect code. Please try again.</p>";
+    }
+}
+?>
